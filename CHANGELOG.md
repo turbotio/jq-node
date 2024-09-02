@@ -1,4 +1,56 @@
-<a name="2.1.2"></a>
+## 3.0.0 (2023-08-14)
+
+* #47 - change default color behavior ([07e784c](https://github.com/fgribreau/jq.node/commit/07e784c)), closes [#47](https://github.com/fgribreau/jq.node/issues/47)
+* #47 - correct issues found in manual testing ([938baa4](https://github.com/fgribreau/jq.node/commit/938baa4)), closes [#47](https://github.com/fgribreau/jq.node/issues/47)
+* #47: implementation/tests ([0801e83](https://github.com/fgribreau/jq.node/commit/0801e83)), closes [#47](https://github.com/fgribreau/jq.node/issues/47)
+* #47: npm housekeeping ([1cc3441](https://github.com/fgribreau/jq.node/commit/1cc3441)), closes [#47](https://github.com/fgribreau/jq.node/issues/47)
+* #47: update README to describe new behavior ([3f138c1](https://github.com/fgribreau/jq.node/commit/3f138c1)), closes [#47](https://github.com/fgribreau/jq.node/issues/47)
+* Release v3.0.0. ([7b91245](https://github.com/fgribreau/jq.node/commit/7b91245))
+* Update README.md ([4fe863c](https://github.com/fgribreau/jq.node/commit/4fe863c))
+* Update README.md ([89eb2b7](https://github.com/fgribreau/jq.node/commit/89eb2b7))
+* chore: fix yargs regression ([a2bd4da](https://github.com/fgribreau/jq.node/commit/a2bd4da))
+* docs(changelog): updated ([b1da303](https://github.com/fgribreau/jq.node/commit/b1da303))
+
+
+
+## 2.4.0 (2021-03-15)
+
+* Release v2.4.0. ([7b3de3e](https://github.com/fgribreau/jq.node/commit/7b3de3e))
+* feat: upgrade ([68eb951](https://github.com/fgribreau/jq.node/commit/68eb951))
+* docs(changelog): updated ([51ad71b](https://github.com/fgribreau/jq.node/commit/51ad71b))
+
+
+
+## 2.3.0 (2021-02-12)
+
+* Create FUNDING.yml ([be43ea1](https://github.com/fgribreau/jq.node/commit/be43ea1))
+* Improve error handling ([2786fd4](https://github.com/fgribreau/jq.node/commit/2786fd4))
+* Release v2.3.0. ([9cd0bb5](https://github.com/fgribreau/jq.node/commit/9cd0bb5))
+* Update README.md ([6e6731b](https://github.com/fgribreau/jq.node/commit/6e6731b))
+* Update README.md ([a08990b](https://github.com/fgribreau/jq.node/commit/a08990b))
+* fix: ci ([b196af1](https://github.com/fgribreau/jq.node/commit/b196af1))
+* fix: ci ([3ee6b99](https://github.com/fgribreau/jq.node/commit/3ee6b99))
+* fix: ci ([8564b5f](https://github.com/fgribreau/jq.node/commit/8564b5f))
+* fix: ci config ([ef49eba](https://github.com/fgribreau/jq.node/commit/ef49eba))
+* docs(changelog): updated ([b2d6916](https://github.com/fgribreau/jq.node/commit/b2d6916))
+
+
+
+## 2.2.0 (2020-07-08)
+
+* Release v2.2.0. ([aa54cd4](https://github.com/fgribreau/jq.node/commit/aa54cd4))
+* Update README.md ([e16d8ac](https://github.com/fgribreau/jq.node/commit/e16d8ac))
+* feat: upgrade deps ([216ae60](https://github.com/fgribreau/jq.node/commit/216ae60))
+* chore(deps-dev): bump updtr from 2.0.0 to 3.1.0 ([f5cd9b7](https://github.com/fgribreau/jq.node/commit/f5cd9b7))
+* chore(deps): [security] bump lodash from 4.17.10 to 4.17.13 ([f9893a5](https://github.com/fgribreau/jq.node/commit/f9893a5))
+* chore(deps): [security] bump lodash.template from 4.4.0 to 4.5.0 ([949e680](https://github.com/fgribreau/jq.node/commit/949e680))
+* chore(deps): [security] bump sshpk from 1.13.1 to 1.16.1 ([0b2a690](https://github.com/fgribreau/jq.node/commit/0b2a690))
+* chore(deps): [security] bump stringstream from 0.0.5 to 0.0.6 ([ef61e17](https://github.com/fgribreau/jq.node/commit/ef61e17))
+* chore(deps): bump cardinal from 1.0.0 to 2.1.1 ([89bf1c8](https://github.com/fgribreau/jq.node/commit/89bf1c8))
+* docs(changelog): updated ([1f6cae5](https://github.com/fgribreau/jq.node/commit/1f6cae5))
+
+
+
 ## <small>2.1.2 (2018-12-09)</small>
 
 * Fix incorrect variable name ([fc23177](https://github.com/fgribreau/jq.node/commit/fc23177))
@@ -10,7 +62,6 @@
 
 
 
-<a name="2.1.1"></a>
 ## <small>2.1.1 (2018-05-14)</small>
 
 * fix ([1a1ce35](https://github.com/fgribreau/jq.node/commit/1a1ce35))
@@ -19,7 +70,6 @@
 
 
 
-<a name="2.1.0"></a>
 ## 2.1.0 (2018-05-14)
 
 * add api ([1c867fb](https://github.com/fgribreau/jq.node/commit/1c867fb))
@@ -36,7 +86,6 @@
 
 
 
-<a name="2.0.0"></a>
 ## 2.0.0 (2017-06-12)
 
 * fix(changelog) ([3171b68](https://github.com/fgribreau/jq.node/commit/3171b68))
@@ -45,7 +94,6 @@
 
 
 
-<a name="1.0.1"></a>
 ## <small>1.0.1 (2017-04-23)</small>
 
 * fix(tests) ([951ace4](https://github.com/fgribreau/jq.node/commit/951ace4))
@@ -57,14 +105,12 @@
 
 
 
-<a name="1.0.0"></a>
 ## 1.0.0 (2016-11-27)
 
 * Release v1.0.0. ([97d04b0](https://github.com/fgribreau/jq.node/commit/97d04b0))
 
 
 
-<a name="0.3.0"></a>
 ## 0.3.0 (2016-11-27)
 
 * docs(README) ([956a5cd](https://github.com/fgribreau/jq.node/commit/956a5cd))
@@ -81,7 +127,6 @@
 
 
 
-<a name="0.2.0"></a>
 ## 0.2.0 (2016-11-07)
 
 * Release v0.2.0. ([e3306b7](https://github.com/fgribreau/jq.node/commit/e3306b7))
@@ -89,7 +134,6 @@
 
 
 
-<a name="0.1.0"></a>
 ## 0.1.0 (2016-11-07)
 
 * Release v0.1.0. ([464146a](https://github.com/fgribreau/jq.node/commit/464146a))
@@ -99,7 +143,6 @@
 
 
 
-<a name="0.0.6"></a>
 ## <small>0.0.6 (2016-11-03)</small>
 
 * feat(raw-input) ([8a1e442](https://github.com/fgribreau/jq.node/commit/8a1e442))
@@ -108,7 +151,6 @@
 
 
 
-<a name="0.0.5"></a>
 ## <small>0.0.5 (2016-11-02)</small>
 
 * Release v0.0.5. ([db157db](https://github.com/fgribreau/jq.node/commit/db157db))
@@ -118,7 +160,6 @@
 
 
 
-<a name="0.0.4"></a>
 ## <small>0.0.4 (2016-11-01)</small>
 
 * Release v0.0.4. ([33b32fc](https://github.com/fgribreau/jq.node/commit/33b32fc))
@@ -126,7 +167,6 @@
 
 
 
-<a name="0.0.3"></a>
 ## <small>0.0.3 (2016-11-01)</small>
 
 * add missing dependency: yargs ([9dd5f21](https://github.com/fgribreau/jq.node/commit/9dd5f21))
@@ -139,7 +179,6 @@
 
 
 
-<a name="0.0.2"></a>
 ## <small>0.0.2 (2016-10-28)</small>
 
 * 🎩 ([e05d5a0](https://github.com/fgribreau/jq.node/commit/e05d5a0))

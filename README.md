@@ -1,8 +1,8 @@
 ### jq.node - Become a shell hero, get super-power
 
-[![Build Status](https://img.shields.io/circleci/project/FGRibreau/jq.node.svg)](https://circleci.com/gh/FGRibreau/jq.node/) ![deps](https://img.shields.io/david/fgribreau/jq.node.svg?style=flat) ![Version](https://img.shields.io/npm/v/jq.node.svg?style=flat) [![Docker hub](https://img.shields.io/docker/pulls/fgribreau/jq.node.svg)](https://hub.docker.com/r/fgribreau/jq.node/) [![available-for-advisory](https://img.shields.io/badge/available%20for%20consulting%20advisory-yes-ff69b4.svg?)](http://bit.ly/2c7uFJq) ![extra](https://img.shields.io/badge/actively%20maintained-yes-ff69b4.svg) [![Twitter Follow](https://img.shields.io/twitter/follow/fgribreau.svg?style=flat)](https://twitter.com/FGRibreau) [![Get help on Codementor](https://cdn.codementor.io/badges/get_help_github.svg)](https://www.codementor.io/francois-guillaume-ribreau?utm_source=github&utm_medium=button&utm_term=francois-guillaume-ribreau&utm_campaign=github)  
+[![Build Status](https://img.shields.io/circleci/project/FGRibreau/jq.node.svg)](https://circleci.com/gh/FGRibreau/jq.node/) ![deps](https://img.shields.io/david/fgribreau/jq.node.svg?style=flat) ![Version](https://img.shields.io/npm/v/jq.node.svg?style=flat) [![Docker hub](https://img.shields.io/docker/pulls/fgribreau/jq.node.svg)](https://hub.docker.com/r/fgribreau/jq.node/) [![available-for-advisory](https://img.shields.io/badge/available%20for%20consulting%20advisory-yes-ff69b4.svg?)](http://bit.ly/2c7uFJq) ![extra](https://img.shields.io/badge/actively%20maintained-yes-ff69b4.svg) [![Twitter Follow](https://img.shields.io/twitter/follow/fgribreau.svg?style=flat)](https://twitter.com/FGRibreau) [![Get help on Codementor](https://cdn.codementor.io/badges/get_help_github.svg)](https://www.codementor.io/francois-guillaume-ribreau?utm_source=github&utm_medium=button&utm_term=francois-guillaume-ribreau&utm_campaign=github) [![Slack](https://img.shields.io/badge/Slack-Join%20our%20tech%20community-17202A?logo=slack)](https://join.slack.com/t/fgribreau/shared_invite/zt-edpjwt2t-Zh39mDUMNQ0QOr9qOj~jrg)
 
-jq.node is JavaScript and Lodash in your shell (along with the 300K+ npm modules). It's a powerful command-line JSON/string processor. It so easy it feels like cheating your inner-bearded-sysadmin.
+jq.node is JavaScript and Lodash in your shell (along with the 1.45M npm modules). It's a powerful command-line JSON/string processor. It so easy it feels like cheating your inner-bearded-sysadmin.
 
 ## Rational
 
@@ -14,13 +14,13 @@ I'm a huge fan of [jq](https://github.com/stedolan/jq) **but** it was so many ti
 - jq.node does not try to implement its own expression language, it's pure JavaScript
 - no need to learn new operators or helpers, if you know [lodash/fp](https://github.com/lodash/lodash/wiki/FP-Guide), you know jq.node helpers
 - more powerful than jq **will ever be** `jqn 'filter(has("email")) | groupBy(u => u.email.split("@")[1]) | csv'`
-- through `--require` command option, jq.node leverages **300K+ npm modules**. Hard to do more powerful than that!
+- through `--require` command option, jq.node leverages **1.45M npm modules**. Hard to do more powerful than that!
 
 ## Why jq? Why not jq.node?
 
 - performance matters more than feature set (in our current implementation jq is faster than jq.node, C vs JavaScript)
 - some features of jq are not currently implemented in jq.node
-- jq is a binary, jq.node is a NodeJS project (🌟 soon accessible through [a docker image](https://hub.docker.com/r/fgribreau/jq.node/))
+- jq is a binary, jq.node is a NodeJS project (🌟 accessible through [a docker image](https://hub.docker.com/r/fgribreau/jq.node/))
 
 ## Install (NodeJS)
 
@@ -30,6 +30,7 @@ npm install jq.node -g
 
 ## Shameless plug
 
+- [Open-Source **Webhook as a Service**](https://www.hook0.com/)
 - [**Charts, simple as a URL**. No more server-side rendering pain, 1 url = 1 chart](https://image-charts.com)
 - [Looking for a free **Redis GUI**?](https://www.redsmin.com) [Or for **real-time alerting** & monitoring for Redis?](http://redsmin.com)
 - [**Mailpopin**](https://mailpop.in/) - **Stripe** payment emails you can actually use
@@ -49,15 +50,15 @@ cat users.json | jqn 'filter(has("email")) | groupBy(flow(get("email"), split("@
 
 Note: the pipe ` | ` **must always** be surrounded by space to be understood by `jqn` as a pipe.
 
-## Examples
+### Examples
 
-### Be notified when a JSON value changed
+#### Be notified when a JSON value changed
 
 ```
 while true; do curl -s http://10.10.0.5:9000/api/ce/task?id=AVhoYB1sNTnExzIJOq_k | jqn 'property("task.status"), thru(a => exit(a === "IN_PROGRESS" ? 0 : 1))' || osascript -e 'display notification "Task done"'; sleep 5; done
 ```
 
-### Open every links from the clipboard
+#### Open every links from the clipboard
 
 ```
 pbpaste | jqn -x -r opn 'split("\n") | forEach(opn)'
@@ -66,6 +67,14 @@ pbpaste | jqn -x -r opn 'split("\n") | forEach(opn)'
 - pbpaste, echoes clipboard content, MacOS only ([use xclip or xsel in Linux](http://superuser.com/a/288333/215986))
 - [opn](https://github.com/sindresorhus/opn) is "a better node-open. Opens stuff like websites, files, executables. Cross-platform."
 
+
+#### Edit a JSON file
+
+This command above rely on [tap](https://lodash.com/docs/4.17.15#tap) to add a propety to a [package.json](https://docs.npmjs.com/cli/v6/configuring-npm/package-json) file [[#89](https://github.com/FGRibreau/jq.node/issues/89)]:
+
+```
+jq.node 'tap(x => x.scripts.build= "sass --load-path=./scss ./scss/style.scss:./css/style.css")' < package.json
+```
 
 ## API Usage
 
@@ -98,11 +107,13 @@ console.log(result) // "2011-10-31T00:00:00.000Z"
 | -h            | --help       | -          | -               | Display the help message and exit.                                                                           |
 | -j            | --json       | json       | boolean         | Force the result to be output as JSON. Without this, `jqn` outputs strings verbatim and non-strings as JSON. |
 | -x            | --raw-input  | rawInput   | boolean         |                                                                                                              |
-| -c            | --color      | color      | boolean         | Colorize JSON (default true)                                                                                 |
+| -c            | --color      | color      | boolean         | Colorize JSON (default: detected via chalk/supports-color)                                                   |
 | -r            | --require    | require    | array(string)   | * Require a NPM module `<npm-module-name>`.                                                                  |
 | -v            | --version    | -          | -               | Display the version and exit.                                                                                |
 
 * jq.node will automatically installs in a temporary folder it if its not available. The module will be available in the expression through its name (e.g. `lodash` for the `lodash` module). Module names that are invalid JavaScript variable names (e.g. `js-yaml`) will be exposed in camel-case format (e.g. `jsYaml`).
+
+jq.node uses [chalk/supports-color](https://github.com/chalk/supports-color/tree/main) to detect whether or not to colorize the output. If the `--color` flag is provided, it takes precedence. This detection is disabled for programmatic API usage. For programmatic usage, an explicitly passed option takes precedence over the default (`false`).
 
 ## Currently supported
 
@@ -140,21 +151,21 @@ No maintainers yet! Will you be the first?
 No sponsors yet! Will you be the first?
 
 <span class="badge-patreon"><a href="https://patreon.com/fgribreau" title="Donate to this project using Patreon"><img src="https://img.shields.io/badge/patreon-donate-yellow.svg" alt="Patreon donate button" /></a></span>
-<span class="badge-gratipay"><a href="https://www.gratipay.com/fgribreau" title="Donate weekly to this project using Gratipay"><img src="https://img.shields.io/badge/gratipay-donate-yellow.svg" alt="Gratipay donate button" /></a></span>
+<span class="badge-gratipay"><a href="https://gratipay.com/fgribreau" title="Donate weekly to this project using Gratipay"><img src="https://img.shields.io/badge/gratipay-donate-yellow.svg" alt="Gratipay donate button" /></a></span>
 <span class="badge-flattr"><a href="https://flattr.com/profile/fgribreau" title="Donate to this project using Flattr"><img src="https://img.shields.io/badge/flattr-donate-yellow.svg" alt="Flattr donate button" /></a></span>
 <span class="badge-paypal"><a href="https://fgribreau.me/paypal" title="Donate to this project using Paypal"><img src="https://img.shields.io/badge/paypal-donate-yellow.svg" alt="PayPal donate button" /></a></span>
-<span class="badge-bitcoin"><a href="https://www.coinbase.com/fgribreau" title="Donate once-off to this project using Bitcoin"><img src="https://img.shields.io/badge/bitcoin-donate-yellow.svg" alt="Bitcoin donate button" /></a></span>
+<span class="badge-bitcoin"><a href="https://www.coinbase.com/fgribreau" title="Donate to this project using Cryptocurrency"><img src="https://img.shields.io/badge/crypto-donate-yellow.svg" alt="crypto donate button" /></a></span>
 
 <h3>Contributors</h3>
 
 These amazing people have contributed code to this project:
 
-<ul><li><a href="http://bit.ly/2c7uFJq">Francois-Guillaume Ribreau</a> — <a href="https://github.com/fgribreau/jq.node/commits?author=FGRibreau" title="View the GitHub contributions of Francois-Guillaume Ribreau on repository fgribreau/jq.node">view contributions</a></li>
+<ul><li><a href="http://bit.ly/2c7uFJq">Francois-Guillaume Ribreau</a></li>
 <li><a href="https://github.com/chocolateboy">chocolateboy</a> — <a href="https://github.com/fgribreau/jq.node/commits?author=chocolateboy" title="View the GitHub contributions of chocolateboy on repository fgribreau/jq.node">view contributions</a></li>
 <li><a href="https://github.com/bronislav">Anton Ilin</a> — <a href="https://github.com/fgribreau/jq.node/commits?author=bronislav" title="View the GitHub contributions of Anton Ilin on repository fgribreau/jq.node">view contributions</a></li>
-<li><a href="http://delapouite.com">Bruno Heridet</a> — <a href="https://github.com/fgribreau/jq.node/commits?author=Delapouite" title="View the GitHub contributions of Bruno Heridet on repository fgribreau/jq.node">view contributions</a></li>
+<li><a href="http://delapouite.com">Bruno Heridet</a></li>
 <li><a href="https://github.com/thalesmello">Thales Mello</a> — <a href="https://github.com/fgribreau/jq.node/commits?author=thalesmello" title="View the GitHub contributions of Thales Mello on repository fgribreau/jq.node">view contributions</a></li>
-<li><a href="http://michael.mior.ca">Michael Mior</a> — <a href="https://github.com/fgribreau/jq.node/commits?author=michaelmior" title="View the GitHub contributions of Michael Mior on repository fgribreau/jq.node">view contributions</a></li></ul>
+<li><a href="http://michael.mior.ca">Michael Mior</a></li></ul>
 
 <a href="https://github.com/fgribreau/jq.node/blob/master/CONTRIBUTING.md#files">Discover how you can contribute by heading on over to the <code>CONTRIBUTING.md</code> file.</a>
 
